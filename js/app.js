@@ -5,7 +5,7 @@ var gridWidth = 20;
 var gridHeight = 20;
 for(var x=gridHeight;x>=1;x--){
   for(var y=1;y<=gridWidth;y++){
-    $('.content').append("<div class='cell' id='cell" + y + "-"+ x + "'>(" + y + "," + x + ")</div>");
+    $('.content').append("<div class='cell' id='cell" + y + "-"+ x + "'></div>");
   }
 }
 var snake = ['1-1','2-1','3-1','4-1'];
@@ -17,10 +17,14 @@ $('#cell2-1').addClass('snakeBody');
 $('#cell1-1').addClass('snakeTail');
 
 function addPrey(){
-  var xPrey = Math.floor(Math.random()*gridWidth);
-  var yPrey = Math.floor(Math.random()*gridWidth);
+  var xPrey = (Math.floor(Math.random()*gridWidth)+1);
+  var yPrey = (Math.floor(Math.random()*gridWidth)+1);
   $('#cell' + xPrey + '-' + yPrey).addClass('prey');
+  preyCell = xPrey + '-' + yPrey;
+  console.log(preyCell);
 }
+
+addPrey();
 
 function move(){
   var newHeadX = '';
@@ -45,39 +49,50 @@ function move(){
     break;
   }
 
+  if (newHeadX === 0 || newHeadY === 0 || newHeadX === gridWidth + 1 || newHeadY === gridHeight + 1){
+    console.log('game over');
+    clearInterval(refreshSnake);
+  }
+
   var newHead = (newHeadX + "-" + newHeadY);
   $('#cell' + snake[0]).removeClass('snakeTail');
   $('#cell' + snake[1]).removeClass('snakeBody').addClass('snakeTail');
   $('#cell' + snake[snake.length-1]).removeClass('snakeHead').addClass('snakeBody');
   $('#cell' + newHead).addClass('snakeHead');
   snake.push(newHead);
-  snake.shift();
-  console.log(snake);
+  if (newHead == preyCell){
+    $('#cell' + preyCell).removeClass('prey');
+    addPrey();
+  } else {
+
+    snake.shift();
+  }
 }
-setInterval(move, speed);
-$(window).keyup(function(e){
+
+var refreshSnake = setInterval(move, speed);
+$(window).keydown(function(e){
   console.log(e.key);
   switch (e.key) {
     case 'ArrowUp':
-      if (dir !== 'd'){
-        dir = 'u';
-      }
-      break;
+    if (dir !== 'd'){
+      dir = 'u';
+    }
+    break;
     case 'ArrowDown':
-      if (dir !== 'u'){
-        dir = 'd';
-      }
-      break;
+    if (dir !== 'u'){
+      dir = 'd';
+    }
+    break;
     case 'ArrowLeft':
-      if (dir !== 'r'){
-        dir = 'l';
-      }
-      break;
+    if (dir !== 'r'){
+      dir = 'l';
+    }
+    break;
     case 'ArrowRight':
-      if (dir !== 'l'){
-        dir = 'r';
-      }
-      break;
+    if (dir !== 'l'){
+      dir = 'r';
+    }
+    break;
   }
 });
 // });
