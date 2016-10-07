@@ -1,0 +1,20 @@
+.container {
+  width: 460px;
+  height: 460px;
+  background-color: red;
+  display: block;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: hotPink;
+}
+
+.cell {
+  background-color: lightGrey;
+  height: 21px;
+  width: 21px;
+  float: left;
+  border: 1px  solid black;
+  font-size: 8px;
+}
