@@ -64,8 +64,11 @@ function move(){
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
   } else {
-
     snake.shift();
+  }
+  if($('#cell' + newHead).hasClass('snakeBody') || $('#cell' + newHead).hasClass('snakeTail')){
+    console.log('Game Over');
+    clearInterval(refreshSnake);
   }
 }
 
@@ -93,6 +96,14 @@ $(window).keydown(function(e){
       dir = 'r';
     }
     break;
+  }
+});
+
+$(window).keydown(function(e){
+  if (e.key == "p"){
+    clearInterval(refreshSnake);
+  } else if (e.key == "r"){
+    refreshSnake = setInterval(move, speed);
   }
 });
 // });
