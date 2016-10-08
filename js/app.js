@@ -5,7 +5,7 @@ var gridWidth = 20;
 var gridHeight = 20;
 for(var x=gridHeight;x>=1;x--){
   for(var y=1;y<=gridWidth;y++){
-    $('.content').append("<div class='cell' id='cell" + y + "-"+ x + "'></div>");
+    $('.game').append("<div class='cell' id='cell" + y + "-"+ x + "'></div>");
   }
 }
 var snake = ['1-1','2-1','3-1','4-1'];
@@ -66,6 +66,7 @@ function move(){
     addPrey();
     click.play();
     click.currentTime = 0;
+    $('#score').html(parseInt($('#score').html())+10);
   } else {
     snake.shift();
   }
@@ -77,7 +78,6 @@ function move(){
 
 var refreshSnake = setInterval(move, speed);
 $(window).keydown(function(e){
-  console.log(e.key);
   switch (e.key) {
     case 'ArrowUp':
     if (dir !== 'd'){
