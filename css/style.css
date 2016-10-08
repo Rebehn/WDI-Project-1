@@ -18,16 +18,16 @@
   font-size: 8px;
 }
 
-.snakeHead {
-  background-color: red;
-}
-
 .snakeBody {
   background-color: hotPink;
 }
 
 .snakeTail {
   background-color: pink;
+}
+
+.snakeHead {
+  background-color: red;
 }
 
 .prey {

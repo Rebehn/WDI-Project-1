@@ -22,6 +22,11 @@ function addPrey(){
   var yPrey = (Math.floor(Math.random()*gridWidth)+1);
   $('#cell' + xPrey + '-' + yPrey).addClass('prey');
   preyCell = xPrey + '-' + yPrey;
+  if ($('#cell' + preyCell).hasClass('snakeBody') || $('#cell' + preyCell).hasClass('snakeTail') || $('#cell' + preyCell).hasClass('snakeHead')){
+    $('#cell' + preyCell).removeClass('prey');
+    addPrey();
+  }
+  else {}
   console.log(preyCell);
 }
 
