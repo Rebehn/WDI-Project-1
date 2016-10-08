@@ -1,9 +1,10 @@
 .container {
   width: 420px;
   height: 420px;
-  background-color: red;
+  background-color: black;
   display: block;
   margin: 0 auto;
+  color: white;
 }
 
 .header {
@@ -32,4 +33,11 @@
 
 .prey {
   background-color: lime;
+}
+
+#gameOver {
+  position: absolute;
+  top: 210px;
+  left: 330px;
+  color: lightGrey;
 }

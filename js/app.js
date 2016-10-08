@@ -114,4 +114,12 @@ $(window).keydown(function(e){
     refreshSnake = setInterval(move, speed);
   }
 });
+
+function gameOver(){
+  for(var x=gridHeight;x>=1;x--){
+    for(var y=1;y<=gridWidth;y++){
+      $('#cell' + y + '-' + x ).fadeOut(200*(x+1));
+    }
+  }
+}
 // });
