@@ -10,6 +10,7 @@ for(var x=gridHeight;x>=1;x--){
 }
 var snake = ['1-1','2-1','3-1','4-1'];
 var dir = 'r';
+var click = new Audio('../sounds/click.wav');
 
 $('#cell4-1').addClass('snakeHead');
 $('#cell3-1').addClass('snakeBody');
@@ -63,6 +64,8 @@ function move(){
   if (newHead == preyCell){
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
+    click.play();
+    click.currentTime = 0;
   } else {
     snake.shift();
   }
