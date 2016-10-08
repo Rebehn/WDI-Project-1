@@ -58,6 +58,7 @@ function move(){
   if (newHeadX === 0 || newHeadY === 0 || newHeadX === gridWidth + 1 || newHeadY === gridHeight + 1){
     console.log('game over');
     clearInterval(refreshSnake);
+    gameOver();
   }
 
   var newHead = (newHeadX + "-" + newHeadY);
@@ -78,6 +79,7 @@ function move(){
   if($('#cell' + newHead).hasClass('snakeBody') || $('#cell' + newHead).hasClass('snakeTail')){
     console.log('Game Over');
     clearInterval(refreshSnake);
+    gameOver();
   }
 }
 
