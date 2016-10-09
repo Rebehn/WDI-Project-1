@@ -1,5 +1,6 @@
 // $(function(){
 console.log('loaded');
+$('#gameOver').hide();
 var speed = 70;
 var gridWidth = 35;
 var gridHeight = 20;
@@ -120,8 +121,9 @@ $(window).keydown(function(e){
 function gameOver(){
   for(var x=gridHeight;x>=1;x--){
     for(var y=1;y<=gridWidth;y++){
-      $('#cell' + y + '-' + x ).fadeOut(200*(x+1));
+      $('#cell' + y + '-' + x ).fadeOut(1500);
     }
   }
+  $('#gameOver').show();
 }
 // });
