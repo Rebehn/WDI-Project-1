@@ -12,6 +12,8 @@ for(var x=gridHeight;x>=1;x--){
 var snake = ['1-1','2-1','3-1','4-1'];
 var dir = 'r';
 var click = new Audio('../sounds/click.wav');
+addPrey();
+addMoveKeys();
 
 $('#cell4-1').addClass('snakeHead');
 $('#cell3-1').addClass('snakeBody');
@@ -30,8 +32,6 @@ function addPrey(){
   else {}
   console.log(preyCell);
 }
-
-addPrey();
 
 function move(){
   var newHeadX = '';
@@ -85,30 +85,33 @@ function move(){
 }
 
 var refreshSnake = setInterval(move, speed);
-$(window).keydown(function(e){
-  switch (e.key) {
-    case 'ArrowUp':
-    if (dir !== 'd'){
-      dir = 'u';
+
+function addMoveKeys(){
+  $(window).keydown(function(e){
+    switch (e.key) {
+      case 'ArrowUp':
+      if (dir !== 'd'){
+        dir = 'u';
+      }
+      break;
+      case 'ArrowDown':
+      if (dir !== 'u'){
+        dir = 'd';
+      }
+      break;
+      case 'ArrowLeft':
+      if (dir !== 'r'){
+        dir = 'l';
+      }
+      break;
+      case 'ArrowRight':
+      if (dir !== 'l'){
+        dir = 'r';
+      }
+      break;
     }
-    break;
-    case 'ArrowDown':
-    if (dir !== 'u'){
-      dir = 'd';
-    }
-    break;
-    case 'ArrowLeft':
-    if (dir !== 'r'){
-      dir = 'l';
-    }
-    break;
-    case 'ArrowRight':
-    if (dir !== 'l'){
-      dir = 'r';
-    }
-    break;
-  }
-});
+  });
+}
 
 $(window).keydown(function(e){
   if (e.key == "p"){
@@ -137,7 +140,7 @@ function restart(){
   for(var x=gridHeight;x>=1;x--){
     for(var y=1;y<=gridWidth;y++){
       $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody');
-      $('#cell' + y + '-' + x ).fadeIn(1500);
+      $('#cell' + y + '-' + x ).fadeIn(100);
     }
   }
   $('#gameOver').hide();
@@ -145,6 +148,7 @@ function restart(){
   dir = 'r';
   $('#cell' + preyCell).removeClass('prey');
   addPrey();
+  addMoveKeys();
   // $(window).keydown(function(e){
   //   if (e.key == "ArrowUp" || e.key == "ArrowRight" || e.key == "ArrowDown" || e.key == "ArrowUp"){
   //     refreshSnake = setInterval(move, speed);
