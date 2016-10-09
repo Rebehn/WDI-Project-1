@@ -115,8 +115,6 @@ $(window).keydown(function(e){
     clearInterval(refreshSnake);
   } else if (e.key == "["){
     refreshSnake = setInterval(move, speed);
-  } else if (e.key == "r"){
-    restart();
   }
 });
 
@@ -127,9 +125,15 @@ function gameOver(){
     }
   }
   $('#gameOver').show();
+  $(window).keydown(function(e){
+    if (e.key == 'r'){
+      restart();
+    }
+  });
 }
 
 function restart(){
+  $(window).off();
   for(var x=gridHeight;x>=1;x--){
     for(var y=1;y<=gridWidth;y++){
       $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody');
