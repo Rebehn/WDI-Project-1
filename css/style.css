@@ -1,10 +1,16 @@
-.container {
+body {
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  color: white;
+}
+
+.game {
   width: 770px;
   height: 440px;
-  background-color: black;
-  display: block;
   margin: 0 auto;
-  color: white;
+  margin-top: 10%;
+  position: relative;
 }
 
 .header {
@@ -23,7 +29,7 @@
 .snakeBody {
   background: repeating-linear-gradient(
     to right,
-    black,
+    hotPink,
     lightGrey 7.4px
     );
 }
@@ -48,7 +54,10 @@
 
 #gameOver {
   position: absolute;
-  top: 210px;
-  left: 330px;
-  color: lightGrey
+  top: 200px;
+  left: 290px;
+  color: lightGrey;
+  font-size: -webkit-xxx-large;
+  font-family: monospace;
+  font-weight: bold;
 }
