@@ -61,3 +61,19 @@ body {
   font-family: monospace;
   font-weight: bold;
 }
+
+#cell1-20 {
+  border-radius: 4px 0 0 0;
+}
+
+#cell35-20 {
+  border-radius: 0 4px 0 0;
+}
+
+#cell1-1 {
+  border-radius: 0 0 0 4px;
+}
+
+#cell35-1 {
+  border-radius: 0 0 4px 0;
+}
