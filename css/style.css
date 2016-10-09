@@ -1,5 +1,5 @@
 .container {
-  width: 440px;
+  width: 770px;
   height: 440px;
   background-color: black;
   display: block;
@@ -38,6 +38,12 @@
 
 .prey {
   background-color: lime;
+}
+
+.score {
+  float: right;
+  display: inline-block;
+  color: pink;
 }
 
 #gameOver {

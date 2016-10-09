@@ -1,7 +1,7 @@
 // $(function(){
 console.log('loaded');
-var speed = 80;
-var gridWidth = 20;
+var speed = 70;
+var gridWidth = 35;
 var gridHeight = 20;
 for(var x=gridHeight;x>=1;x--){
   for(var y=1;y<=gridWidth;y++){
@@ -19,7 +19,7 @@ $('#cell1-1').addClass('snakeTail');
 
 function addPrey(){
   var xPrey = (Math.floor(Math.random()*gridWidth)+1);
-  var yPrey = (Math.floor(Math.random()*gridWidth)+1);
+  var yPrey = (Math.floor(Math.random()*gridHeight)+1);
   $('#cell' + xPrey + '-' + yPrey).addClass('prey');
   preyCell = xPrey + '-' + yPrey;
   if ($('#cell' + preyCell).hasClass('snakeBody') || $('#cell' + preyCell).hasClass('snakeTail') || $('#cell' + preyCell).hasClass('snakeHead')){
