@@ -1,2 +1,3 @@
 # WDI-Project-1
-A js game
+A javascript game similar to snake
+
