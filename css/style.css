@@ -47,9 +47,12 @@ body {
 }
 
 .score {
-  float: right;
-  display: inline-block;
-  color: pink;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: red;
+  font-family: monospace;
+  font-weight: bold;
 }
 
 #gameOver {
