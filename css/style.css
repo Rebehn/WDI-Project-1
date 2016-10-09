@@ -15,6 +15,9 @@ body {
 
 .header {
   background-color: hotPink;
+  font-family: monospace;
+  font-size: 75px;
+  padding-left: 3%;
 }
 
 .cell {
@@ -27,11 +30,7 @@ body {
 }
 
 .snakeBody {
-  background: repeating-linear-gradient(
-    to right,
-    hotPink,
-    lightGrey 7.4px
-    );
+  background: repeating-linear-gradient(to right, hotPink, lightGrey 7.4px );
 }
 
 .snakeTail {

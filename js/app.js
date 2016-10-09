@@ -113,8 +113,10 @@ $(window).keydown(function(e){
 $(window).keydown(function(e){
   if (e.key == "p"){
     clearInterval(refreshSnake);
-  } else if (e.key == "r"){
+  } else if (e.key == "["){
     refreshSnake = setInterval(move, speed);
+  } else if (e.key == "r"){
+    restart();
   }
 });
 
@@ -125,5 +127,25 @@ function gameOver(){
     }
   }
   $('#gameOver').show();
+}
+
+function restart(){
+  for(var x=gridHeight;x>=1;x--){
+    for(var y=1;y<=gridWidth;y++){
+      $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody');
+      $('#cell' + y + '-' + x ).fadeIn(1500);
+    }
+  }
+  $('#gameOver').hide();
+  snake = ['1-1','2-1','3-1','4-1'];
+  dir = 'r';
+  $('#cell' + preyCell).removeClass('prey');
+  addPrey();
+  // $(window).keydown(function(e){
+  //   if (e.key == "ArrowUp" || e.key == "ArrowRight" || e.key == "ArrowDown" || e.key == "ArrowUp"){
+  //     refreshSnake = setInterval(move, speed);
+  //   }
+  // });
+  refreshSnake = setInterval(move, speed);
 }
 // });
