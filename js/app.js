@@ -17,18 +17,19 @@ addMoveKeys();
 var nextNewHead = 1;
 var snakeBodyDir = 1;
 var snakeHeadDir = 2;
+var snakeTailDir = 2;
 
 $('#cell4-1').addClass('snakeHead' + snakeHeadDir);
 $('#cell3-1').addClass('snakeBody' + nextNewHead);
 $('#cell2-1').addClass('snakeBody' + nextNewHead);
-$('#cell1-1').addClass('snakeTail');
+$('#cell1-1').addClass('snakeTail' + snakeTailDir);
 
 function addPrey(){
   var xPrey = (Math.floor(Math.random()*gridWidth)+1);
   var yPrey = (Math.floor(Math.random()*gridHeight)+1);
   $('#cell' + xPrey + '-' + yPrey).addClass('prey');
   preyCell = xPrey + '-' + yPrey;
-  if ($('#cell' + preyCell).hasClass('snakeBody' + nextNewHead) || $('#cell' + preyCell).hasClass('snakeTail') || $('#cell' + preyCell).hasClass('snakeHead')){
+  if ($('#cell' + preyCell).hasClass('snakeBody' + nextNewHead) || $('#cell' + preyCell).hasClass('snakeTail' + snakeTailDir) || $('#cell' + preyCell).hasClass('snakeHead')){
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
   }
@@ -66,8 +67,8 @@ function move(){
   }
 
   var newHead = (newHeadX + "-" + newHeadY);
-  $('#cell' + snake[0]).removeClass('snakeTail');
-  $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail');
+  $('#cell' + snake[0]).removeClass('snakeTail' + snakeTailDir);
+  $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail' + snakeTailDir);
   $('#cell' + snake[snake.length-1]).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').addClass('snakeBody' + nextNewHead);
   $('#cell' + newHead).addClass('snakeHead' + snakeHeadDir);
   snake.push(newHead);
