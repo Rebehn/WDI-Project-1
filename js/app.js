@@ -69,6 +69,9 @@ function move(){
 
   var newHead = (newHeadX + "-" + newHeadY);
   $('#cell' + snake[0]).removeClass('snakeTail1').removeClass('snakeTail2').removeClass('snakeTail3').removeClass('snakeTail4');
+  if ($('#cell' + snake[1]).hasClass('snakeBody3') || $('#cell' + snake[1]).hasClass('snakeBody4') || $('#cell' + snake[1]).hasClass('snakeBody5') || $('#cell' + snake[1]).hasClass('snakeBody6')){
+    snakeTailHolder = snakeTailDir;
+  }
   $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail' + snakeTailHolder);
   $('#cell' + snake[snake.length-1]).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').addClass('snakeBody' + nextNewHead);
   $('#cell' + newHead).addClass('snakeHead' + snakeHeadDir);
@@ -105,7 +108,6 @@ function addMoveKeys(){
         }
         snakeBodyDir = 2;
         snakeHeadDir = 1;
-        snakeTailHolder = snakeTailDir;
         snakeTailDir = 1;
         dir = 'u';
       }
@@ -121,7 +123,6 @@ function addMoveKeys(){
         dir = 'd';
         snakeBodyDir = 2;
         snakeHeadDir = 3;
-        snakeTailHolder = snakeTailDir;
         snakeTailDir = 3;
       }
       break;
@@ -136,7 +137,6 @@ function addMoveKeys(){
         dir = 'l';
         snakeBodyDir = 1;
         snakeHeadDir = 4;
-        snakeTailHolder = snakeTailDir;
         snakeTailDir = 4;
       }
       break;
@@ -151,7 +151,6 @@ function addMoveKeys(){
         dir = 'r';
         snakeBodyDir = 1;
         snakeHeadDir = 2;
-        snakeTailHolder = snakeTailDir;
         snakeTailDir = 2;
       }
       break;
