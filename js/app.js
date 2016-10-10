@@ -18,7 +18,6 @@ var nextNewHead = 1;
 var snakeBodyDir = 1;
 var snakeHeadDir = 2;
 var snakeTailDir = 2;
-var snakeTailHolder = 2;
 
 $('#cell4-1').addClass('snakeHead' + snakeHeadDir);
 $('#cell3-1').addClass('snakeBody' + nextNewHead);
@@ -34,7 +33,6 @@ function addPrey(){
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
   }
-  console.log(preyCell);
 }
 
 function move(){
@@ -67,11 +65,9 @@ function move(){
   }
 
   var newHead = (newHeadX + "-" + newHeadY);
+  changeTail();
   $('#cell' + snake[0]).removeClass('snakeTail1').removeClass('snakeTail2').removeClass('snakeTail3').removeClass('snakeTail4');
-  if ($('#cell' + snake[1]).hasClass('snakeBody3') || $('#cell' + snake[1]).hasClass('snakeBody4') || $('#cell' + snake[1]).hasClass('snakeBody5') || $('#cell' + snake[1]).hasClass('snakeBody6')){
-    snakeTailHolder = snakeTailDir;
-  }
-  $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail' + snakeTailHolder);
+  $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail' + snakeTailDir);
   $('#cell' + snake[snake.length-1]).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').addClass('snakeBody' + nextNewHead);
   $('#cell' + newHead).addClass('snakeHead' + snakeHeadDir);
   snake.push(newHead);
@@ -108,7 +104,6 @@ function addMoveKeys(){
         }
         snakeBodyDir = 2;
         snakeHeadDir = 1;
-        snakeTailDir = 1;
         dir = 'u';
       }
       break;
@@ -124,7 +119,6 @@ function addMoveKeys(){
         dir = 'd';
         snakeBodyDir = 2;
         snakeHeadDir = 3;
-        snakeTailDir = 3;
       }
       break;
       case 'ArrowLeft':
@@ -139,7 +133,6 @@ function addMoveKeys(){
         dir = 'l';
         snakeBodyDir = 1;
         snakeHeadDir = 4;
-        snakeTailDir = 4;
       }
       break;
       case 'ArrowRight':
@@ -154,7 +147,6 @@ function addMoveKeys(){
         dir = 'r';
         snakeBodyDir = 1;
         snakeHeadDir = 2;
-        snakeTailDir = 2;
       }
       break;
     }
@@ -183,6 +175,23 @@ function gameOver(){
   });
 }
 
+function changeTail(){
+  if ($('#cell' + snake[1]).hasClass('snakeBody3') || $('#cell' + snake[1]).hasClass('snakeBody4') || $('#cell' + snake[1]).hasClass('snakeBody5') || $('#cell' + snake[1]).hasClass('snakeBody6')){
+    if (parseInt(snake[2].split("-")[1]) === parseInt(snake[1].split("-")[1]) + 1){
+      snakeTailDir = 1;
+    }
+    else if (parseInt(snake[2].split("-")[1]) === parseInt(snake[1].split("-")[1]) - 1){
+      snakeTailDir = 3;
+    }
+    else if (parseInt(snake[2].split("-")[0]) === parseInt(snake[1].split("-")[0]) + 1){
+      snakeTailDir = 2;
+    }
+    else if (parseInt(snake[2].split("-")[0]) === parseInt(snake[1].split("-")[0]) - 1){
+      snakeTailDir = 4;
+    }
+  }
+}
+
 function restart(){
   $(window).off();
   for(var x=gridHeight;x>=1;x--){
@@ -197,11 +206,7 @@ function restart(){
   $('#cell' + preyCell).removeClass('prey');
   addPrey();
   addMoveKeys();
-  // $(window).keydown(function(e){
-  //   if (e.key == "ArrowUp" || e.key == "ArrowRight" || e.key == "ArrowDown" || e.key == "ArrowUp"){
-  //     refreshSnake = setInterval(move, speed);
-  //   }
-  // });
+
   refreshSnake = setInterval(move, speed);
 }
 // });
