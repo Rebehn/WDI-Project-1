@@ -167,6 +167,15 @@ body {
 .score {
   position: absolute;
   bottom: 0;
+  right: 100px;
+  color: green;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.score2 {
+  position: absolute;
+  bottom: 0;
   right: 0;
   color: red;
   font-family: monospace;
@@ -176,7 +185,7 @@ body {
 #infoBox {
   position: absolute;
   top: 200px;
-  left: 250px;
+  left: 100px;
   color: lightGrey;
   font-size: -webkit-xxx-large;
   font-family: monospace;
