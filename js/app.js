@@ -1,7 +1,7 @@
 // $(function(){
 console.log('loaded');
 $('#gameOver').hide();
-var speed = 700;
+var speed = 70;
 var gridWidth = 35;
 var gridHeight = 20;
 for(var x=gridHeight;x>=1;x--){
