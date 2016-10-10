@@ -6,7 +6,7 @@ body {
 }
 
 .game {
-  width: 770px;
+  width: 700px;
   height: 440px;
   margin: 0 auto;
   margin-top: 10%;
@@ -21,24 +21,62 @@ body {
 }
 
 .cell {
-  background-color: lightGrey;
+  background-color: white;
   height: 20px;
   width: 20px;
   float: left;
   font-size: 8px;
-  border: 1px solid lightGrey;
 }
 
-.snakeBody {
-  background: repeating-linear-gradient(to right, hotPink, lightGrey 7.4px );
+.snakeBody1 {
+  background-image: url('../images/snakebody.jpg');
+}
+
+.snakeBody2 {
+  background-image: url('../images/snakebody.jpg');
+  transform: rotate(90deg);
+}
+
+.snakeBody3 {
+  background-image: url('../images/snakecorner.jpg');
+  transform: rotate(90deg);
+}
+
+.snakeBody4 {
+  background-image: url('../images/snakecorner.jpg');
+  transform: rotate(180deg);
+}
+
+.snakeBody5 {
+  background-image: url('../images/snakecorner.jpg');
+  transform: rotate(270deg);
+}
+
+.snakeBody6 {
+  background-image: url('../images/snakecorner.jpg');
 }
 
 .snakeTail {
   background-color: pink;
 }
 
-.snakeHead {
-  background-color: red;
+.snakeHead1 {
+  background-image: url('../images/snakehead.jpg');
+  transform: rotate(270deg);
+}
+
+.snakeHead2 {
+  background-image: url('../images/snakehead.jpg');
+}
+
+.snakeHead3 {
+  background-image: url('../images/snakehead.jpg');
+  transform: rotate(90deg);
+}
+
+.snakeHead4 {
+  background-image: url('../images/snakehead.jpg');
+  transform: rotate(180deg);
 }
 
 .prey {
