@@ -107,10 +107,10 @@ body {
   font-weight: bold;
 }
 
-#gameOver {
+#infoBox {
   position: absolute;
   top: 200px;
-  left: 290px;
+  left: 250px;
   color: lightGrey;
   font-size: -webkit-xxx-large;
   font-family: monospace;

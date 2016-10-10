@@ -4,7 +4,7 @@ console.log('loaded');
 
 function play(){
   console.log('playing');
-  $('#gameOver').hide();
+  $('#infoBox').hide();
   var speed = 70;
   var gridWidth = 35;
   var gridHeight = 20;
@@ -171,7 +171,8 @@ function play(){
         $('#cell' + y + '-' + x ).fadeOut(1500);
       }
     }
-    $('#gameOver').show();
+    $('#infoBox').html('Game Over');
+    $('#infoBox').show();
     $(window).keydown(function(e){
       if (e.key == 'r'){
         restart();
@@ -204,7 +205,7 @@ function play(){
         $('#cell' + y + '-' + x ).fadeIn(100);
       }
     }
-    $('#gameOver').hide();
+    $('#infoBox').hide();
     snake = ['1-1','2-1','3-1','4-1'];
     dir = 'r';
     $('#cell' + preyCell).removeClass('prey');
