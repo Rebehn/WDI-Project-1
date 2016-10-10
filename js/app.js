@@ -14,69 +14,78 @@ function play(){
     }
   }
   var snake = ['1-1','2-1','3-1','4-1'];
-  var dir = 'r';
-  var click = new Audio('../sounds/click.wav');
-  addPrey();
-  addMoveKeys();
-  var nextNewHead = 1;
+  var snakeNextNewHead = 1;
   var snakeBodyDir = 1;
   var snakeHeadDir = 2;
   var snakeTailDir = 2;
+  var snakeDir = 'r';
+  var click = new Audio('../sounds/click.wav');
+  addPrey();
+  addMoveKeys();
 
   $('#cell4-1').addClass('snakeHead' + snakeHeadDir);
-  $('#cell3-1').addClass('snakeBody' + nextNewHead);
-  $('#cell2-1').addClass('snakeBody' + nextNewHead);
+  $('#cell3-1').addClass('snakeBody' + snakeNextNewHead);
+  $('#cell2-1').addClass('snakeBody' + snakeNextNewHead);
   $('#cell1-1').addClass('snakeTail' + snakeTailDir);
+
+  function snakeInit(){
+    snake = ['1-1','2-1','3-1','4-1'];
+    snakeNextNewHead = 1;
+    snakeBodyDir = 1;
+    snakeHeadDir = 2;
+    snakeTailDir = 2;
+    refreshSnake = setInterval(snakeMove, speed);
+  }
 
   function addPrey(){
     var xPrey = (Math.floor(Math.random()*gridWidth)+1);
     var yPrey = (Math.floor(Math.random()*gridHeight)+1);
     $('#cell' + xPrey + '-' + yPrey).addClass('prey');
     preyCell = xPrey + '-' + yPrey;
-    if ($('#cell' + preyCell).hasClass('snakeBody' + nextNewHead) || $('#cell' + preyCell).hasClass('snakeTail' + snakeTailDir) || $('#cell' + preyCell).hasClass('snakeHead')){
+    if ($('#cell' + preyCell).hasClass('snakeBody' + snakeNextNewHead) || $('#cell' + preyCell).hasClass('snakeTail' + snakeTailDir) || $('#cell' + preyCell).hasClass('snakeHead')){
       $('#cell' + preyCell).removeClass('prey');
       addPrey();
     }
   }
 
-  function move(){
-    var newHeadX = '';
-    var newHeadY = '';
+  function snakeMove(){
+    var snakeNewHeadX = '';
+    var snakeNewHeadY = '';
 
-    switch (dir){
+    switch (snakeDir){
       case 'r':
-      newHeadX = parseInt(snake[snake.length-1].split("-")[0]) + 1;
-      newHeadY = parseInt(snake[snake.length-1].split("-").pop());
+      snakeNewHeadX = parseInt(snake[snake.length-1].split("-")[0]) + 1;
+      snakeNewHeadY = parseInt(snake[snake.length-1].split("-").pop());
       break;
       case 'l':
-      newHeadX = parseInt(snake[snake.length-1].split("-")[0]) - 1;
-      newHeadY = parseInt(snake[snake.length-1].split("-").pop());
+      snakeNewHeadX = parseInt(snake[snake.length-1].split("-")[0]) - 1;
+      snakeNewHeadY = parseInt(snake[snake.length-1].split("-").pop());
       break;
       case 'u':
-      newHeadX = parseInt(snake[snake.length-1].split("-")[0]);
-      newHeadY = parseInt(snake[snake.length-1].split("-").pop()) + 1;
+      snakeNewHeadX = parseInt(snake[snake.length-1].split("-")[0]);
+      snakeNewHeadY = parseInt(snake[snake.length-1].split("-").pop()) + 1;
       break;
       case 'd':
-      newHeadX = parseInt(snake[snake.length-1].split("-")[0]);
-      newHeadY = parseInt(snake[snake.length-1].split("-").pop()) - 1;
+      snakeNewHeadX = parseInt(snake[snake.length-1].split("-")[0]);
+      snakeNewHeadY = parseInt(snake[snake.length-1].split("-").pop()) - 1;
       break;
     }
 
-    if (newHeadX === 0 || newHeadY === 0 || newHeadX === gridWidth + 1 || newHeadY === gridHeight + 1){
+    if (snakeNewHeadX === 0 || snakeNewHeadY === 0 || snakeNewHeadX === gridWidth + 1 || snakeNewHeadY === gridHeight + 1){
       console.log('game over');
       clearInterval(refreshSnake);
       gameOver();
     }
 
-    var newHead = (newHeadX + "-" + newHeadY);
-    changeTail();
+    var snakeNewHead = (snakeNewHeadX + "-" + snakeNewHeadY);
+    changeSnakeTail();
     $('#cell' + snake[0]).removeClass('snakeTail1').removeClass('snakeTail2').removeClass('snakeTail3').removeClass('snakeTail4');
     $('#cell' + snake[1]).removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody4').removeClass('snakeBody5').removeClass('snakeBody6').addClass('snakeTail' + snakeTailDir);
-    $('#cell' + snake[snake.length-1]).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').addClass('snakeBody' + nextNewHead);
-    $('#cell' + newHead).addClass('snakeHead' + snakeHeadDir);
-    snake.push(newHead);
-    nextNewHead = snakeBodyDir;
-    if (newHead == preyCell){
+    $('#cell' + snake[snake.length-1]).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').addClass('snakeBody' + snakeNextNewHead);
+    $('#cell' + snakeNewHead).addClass('snakeHead' + snakeHeadDir);
+    snake.push(snakeNewHead);
+    snakeNextNewHead = snakeBodyDir;
+    if (snakeNewHead == preyCell){
       $('#cell' + preyCell).removeClass('prey');
       addPrey();
       click.play();
@@ -85,70 +94,70 @@ function play(){
     } else {
       snake.shift();
     }
-    if($('#cell' + newHead).hasClass('snakeBody1') || $('#cell' + newHead).hasClass('snakeBody2') || $('#cell' + newHead).hasClass('snakeBody3') || $('#cell' + newHead).hasClass('snakeBody4') || $('#cell' + newHead).hasClass('snakeBody5') || $('#cell' + newHead).hasClass('snakeBody6') || $('#cell' + newHead).hasClass('snakeTail1') || $('#cell' + newHead).hasClass('snakeTail2') || $('#cell' + newHead).hasClass('snakeTail3') || $('#cell' + newHead).hasClass('snakeTail4')){
+    if($('#cell' + snakeNewHead).hasClass('snakeBody1') || $('#cell' + snakeNewHead).hasClass('snakeBody2') || $('#cell' + snakeNewHead).hasClass('snakeBody3') || $('#cell' + snakeNewHead).hasClass('snakeBody4') || $('#cell' + snakeNewHead).hasClass('snakeBody5') || $('#cell' + snakeNewHead).hasClass('snakeBody6') || $('#cell' + snakeNewHead).hasClass('snakeTail1') || $('#cell' + snakeNewHead).hasClass('snakeTail2') || $('#cell' + snakeNewHead).hasClass('snakeTail3') || $('#cell' + snakeNewHead).hasClass('snakeTail4')){
       console.log('Game Over');
       clearInterval(refreshSnake);
       gameOver();
     }
   }
 
-  var refreshSnake = setInterval(move, speed);
+  var refreshSnake = setInterval(snakeMove, speed);
 
   function addMoveKeys(){
     $(window).keydown(function(e){
       switch (e.key) {
         case 'ArrowUp':
-        if(dir === 'u') return;
-        if (dir !== 'd'){
-          if (dir == 'r'){
-            nextNewHead = 4;
+        if(snakeDir === 'u') return;
+        if (snakeDir !== 'd'){
+          if (snakeDir == 'r'){
+            snakeNextNewHead = 4;
           }
           else {
-            nextNewHead = 5;
+            snakeNextNewHead = 5;
           }
           snakeBodyDir = 2;
           snakeHeadDir = 1;
-          dir = 'u';
+          snakeDir = 'u';
         }
         break;
         case 'ArrowDown':
-        if(dir === 'd') return;
-        if (dir !== 'u'){
-          if (dir == 'r'){
-            nextNewHead = 3;
+        if(snakeDir === 'd') return;
+        if (snakeDir !== 'u'){
+          if (snakeDir == 'r'){
+            snakeNextNewHead = 3;
           }
           else {
-            nextNewHead = 6;
+            snakeNextNewHead = 6;
           }
-          dir = 'd';
+          snakeDir = 'd';
           snakeBodyDir = 2;
           snakeHeadDir = 3;
         }
         break;
         case 'ArrowLeft':
-        if(dir === 'l') return;
-        if (dir !== 'r'){
-          if (dir == 'u'){
-            nextNewHead = 3;
+        if(snakeDir === 'l') return;
+        if (snakeDir !== 'r'){
+          if (snakeDir == 'u'){
+            snakeNextNewHead = 3;
           }
           else {
-            nextNewHead = 4;
+            snakeNextNewHead = 4;
           }
-          dir = 'l';
+          snakeDir = 'l';
           snakeBodyDir = 1;
           snakeHeadDir = 4;
         }
         break;
         case 'ArrowRight':
-        if(dir === 'r') return;
-        if (dir !== 'l'){
-          if (dir == 'u'){
-            nextNewHead = 6;
+        if(snakeDir === 'r') return;
+        if (snakeDir !== 'l'){
+          if (snakeDir == 'u'){
+            snakeNextNewHead = 6;
           }
           else {
-            nextNewHead = 5;
+            snakeNextNewHead = 5;
           }
-          dir = 'r';
+          snakeDir = 'r';
           snakeBodyDir = 1;
           snakeHeadDir = 2;
         }
@@ -161,7 +170,7 @@ function play(){
     if (e.key == "p"){
       clearInterval(refreshSnake);
     } else if (e.key == "["){
-      refreshSnake = setInterval(move, speed);
+      refreshSnake = setInterval(snakeMove, speed);
     }
   });
 
@@ -180,7 +189,7 @@ function play(){
     });
   }
 
-  function changeTail(){
+  function changeSnakeTail(){
     if ($('#cell' + snake[1]).hasClass('snakeBody3') || $('#cell' + snake[1]).hasClass('snakeBody4') || $('#cell' + snake[1]).hasClass('snakeBody5') || $('#cell' + snake[1]).hasClass('snakeBody6')){
       if (parseInt(snake[2].split("-")[1]) === parseInt(snake[1].split("-")[1]) + 1){
         snakeTailDir = 1;
@@ -201,18 +210,15 @@ function play(){
     $(window).off();
     for(var x=gridHeight;x>=1;x--){
       for(var y=1;y<=gridWidth;y++){
-        $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody' + nextNewHead);
+        $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody' + snakeNextNewHead);
         $('#cell' + y + '-' + x ).fadeIn(100);
       }
     }
     $('#infoBox').hide();
-    snake = ['1-1','2-1','3-1','4-1'];
-    dir = 'r';
+    snakeInit();
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
     addMoveKeys();
-
-    refreshSnake = setInterval(move, speed);
   }
 
 }
@@ -220,8 +226,6 @@ function play(){
 $(window).one().keydown(function(e){
   console.log(e.key);
   $(window).off();
-  if (e.key == " "){
-    play();
-  }
+  play();
 });
 // });
