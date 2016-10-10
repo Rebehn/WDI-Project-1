@@ -94,7 +94,7 @@ body {
   transform: rotate(180deg);
 }
 
-/*.drakeBody1 {
+.drakeBody1 {
   background-image: url('../images/drakebody.jpg');
 }
 
@@ -158,7 +158,7 @@ body {
 .drakeHead4 {
   background-image: url('../images/drakehead.jpg');
   transform: rotate(180deg);
-}*/
+}
 
 .prey {
   background-image: url('../images/duck.jpg');
