@@ -95,7 +95,7 @@ body {
 }
 
 .prey {
-  background-color: lime;
+  background-image: url('../images/duck.jpg');
 }
 
 .score {
