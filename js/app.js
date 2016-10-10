@@ -34,7 +34,6 @@ function addPrey(){
     $('#cell' + preyCell).removeClass('prey');
     addPrey();
   }
-  else {}
   console.log(preyCell);
 }
 
@@ -99,6 +98,7 @@ function addMoveKeys(){
   $(window).keydown(function(e){
     switch (e.key) {
       case 'ArrowUp':
+      if(dir === 'u') return;
       if (dir !== 'd'){
         if (dir == 'r'){
           nextNewHead = 4;
@@ -113,6 +113,7 @@ function addMoveKeys(){
       }
       break;
       case 'ArrowDown':
+      if(dir === 'd') return;
       if (dir !== 'u'){
         if (dir == 'r'){
           nextNewHead = 3;
@@ -127,6 +128,7 @@ function addMoveKeys(){
       }
       break;
       case 'ArrowLeft':
+      if(dir === 'l') return;
       if (dir !== 'r'){
         if (dir == 'u'){
           nextNewHead = 3;
@@ -141,6 +143,7 @@ function addMoveKeys(){
       }
       break;
       case 'ArrowRight':
+      if(dir === 'r') return;
       if (dir !== 'l'){
         if (dir == 'u'){
           nextNewHead = 6;
