@@ -81,7 +81,7 @@ function move(){
   } else {
     snake.shift();
   }
-  if($('#cell' + newHead).hasClass('snakeBody' + nextNewHead) || $('#cell' + newHead).hasClass('snakeTail')){
+  if($('#cell' + newHead).hasClass('snakeBody1') || $('#cell' + newHead).hasClass('snakeBody2') || $('#cell' + newHead).hasClass('snakeBody3') || $('#cell' + newHead).hasClass('snakeBody4') || $('#cell' + newHead).hasClass('snakeBody5') || $('#cell' + newHead).hasClass('snakeBody6') || $('#cell' + newHead).hasClass('snakeTail1') || $('#cell' + newHead).hasClass('snakeTail2') || $('#cell' + newHead).hasClass('snakeTail3') || $('#cell' + newHead).hasClass('snakeTail4')){
     console.log('Game Over');
     clearInterval(refreshSnake);
     gameOver();
