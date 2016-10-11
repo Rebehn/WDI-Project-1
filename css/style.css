@@ -1,23 +1,21 @@
 body {
-  width: 100%;
-  position: fixed;
   background-color: black;
-  color: white;
+}
+
+.content {
+  background-image: url('../images/gba.png');
+  background-size: cover;
+  width: 1440px;
+  height: 810px;
+  margin-top: 45px;
 }
 
 .game {
   width: 700px;
   height: 440px;
   margin: 0 auto;
-  margin-top: 10%;
   position: relative;
-}
-
-.header {
-  background-color: hotPink;
-  font-family: monospace;
-  font-size: 75px;
-  padding-left: 3%;
+  top: 180px;
 }
 
 .cell {

@@ -310,7 +310,8 @@ function play(){
 
   $(window).keydown(function(e){
     if (e.key == "p"){
-      clearInterval(refreshSnake, refreshDrake);
+      clearInterval(refreshSnake);
+      clearInterval(refreshDrake);
     } else if (e.key == "["){
       refreshSnake = setInterval(snakeMove, speed);
     }
