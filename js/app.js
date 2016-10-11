@@ -611,18 +611,7 @@ function play(){
   }
 
   function restart(){
-    $(window).off();
-    for(var x=gridHeight;x>=1;x--){
-      for(var y=1;y<=gridWidth;y++){
-        $('#cell' + y + '-' + x ).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').removeClass('snakeTail1').removeClass('snakeTail2').removeClass('snakeTail3').removeClass('snakeTail4').removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody3').removeClass('snakeBody3').removeClass('snakeBody3');
-        $('#cell' + y + '-' + x ).fadeIn(100);
-      }
-    }
-    $('#infoBox').hide();
-    snakeInit();
-    $('#cell' + preyCell).removeClass('prey');
-    addPrey();
-    snakeAddMoveKeys();
+    location.reload();
   }
 
 }
