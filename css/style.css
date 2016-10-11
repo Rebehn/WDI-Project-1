@@ -265,9 +265,9 @@ button:focus {
 #infoBox {
   position: absolute;
   top: 200px;
-  left: 100px;
+  left: 6px;
   color: lightGrey;
-  font-size: -webkit-xxx-large;
+  font-size: 20px;
   font-family: monospace;
   font-weight: bold;
 }
