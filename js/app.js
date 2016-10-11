@@ -478,6 +478,42 @@ function play(){
       clearInterval(refreshDrake);
       gameOver();
     }
+    for(var x=gridHeight;x>=1;x--){
+      for(var y=1;y<=gridWidth;y++){
+        if(('$cell' + x + '-' + y).hasClass('snakeHead1')){
+          if(('$cell' + x + '-' + y).hasClass('drakeHead1') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead4')){
+            console.log('Game Over');
+            clearInterval(refreshSnake);
+            clearInterval(refreshDrake);
+            gameOver();
+          }
+        }
+        else if(('$cell' + x + '-' + y).hasClass('snakeHead2')){
+          if(('$cell' + x + '-' + y).hasClass('drakeHead1') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead4')){
+            console.log('Game Over');
+            clearInterval(refreshSnake);
+            clearInterval(refreshDrake);
+            gameOver();
+          }
+        }
+        else if(('$cell' + x + '-' + y).hasClass('snakeHead3')){
+          if(('$cell' + x + '-' + y).hasClass('drakeHead1') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead4')){
+            console.log('Game Over');
+            clearInterval(refreshSnake);
+            clearInterval(refreshDrake);
+            gameOver();
+          }
+        }
+        else if(('$cell' + x + '-' + y).hasClass('snakeHead4')){
+          if(('$cell' + x + '-' + y).hasClass('drakeHead1') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead3') || ('$cell' + x + '-' + y).hasClass('drakeHead4')){
+            console.log('Game Over');
+            clearInterval(refreshSnake);
+            clearInterval(refreshDrake);
+            gameOver();
+          }
+        }
+      }
+    }
   }
 
   var refreshSnake = setInterval(snakeMove, speed);
