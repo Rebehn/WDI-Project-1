@@ -1,6 +1,10 @@
 
 console.log('loaded');
 
+var background = new Audio('../sounds/Fade.mp3');
+var guile = new Audio ('../sounds/guile.mp3');
+var wilhelm = new Audio('../sounds/wilhelm.wav');
+
 var $btn1 = $('#btn1');
 var $btn2 = $('#btn2');
 
@@ -28,6 +32,13 @@ $(document).on('keyup', function(e) {
 });
 
 function playSolo(){
+  var backInterval = setInterval(function(){
+    background.pause();
+    background.currentTime = 0;
+    background.play();
+  }, 2222);
+  background.play();
+
   $btn1.off();
   $btn2.off();
   $(document).off();
@@ -236,6 +247,9 @@ function playSolo(){
   });
 
   function gameOver(){
+    background.pause();
+    clearInterval(backInterval);
+    wilhelm.play();
     for(var x=gridHeight;x>=1;x--){
       for(var y=1;y<=gridWidth;y++){
         $('#cell' + y + '-' + x ).fadeOut(1500);
@@ -274,6 +288,14 @@ function playSolo(){
 }
 
 function play(){
+  var guileInterval = setInterval(function(){
+    guile.pause();
+    guile.currentTime = 4500;
+    guile.play();
+  }, 245616);
+  guile.currentTime = 4500;
+  guile.play();
+
   $('#btn1').off();
   $('#btn2').off();
   $(document).off();
@@ -395,7 +417,8 @@ function play(){
     }
     if($('#cell' + snakeNewHead).hasClass('snakeBody1') || $('#cell' + snakeNewHead).hasClass('snakeBody2') || $('#cell' + snakeNewHead).hasClass('snakeBody3') || $('#cell' + snakeNewHead).hasClass('snakeBody4') || $('#cell' + snakeNewHead).hasClass('snakeBody5') || $('#cell' + snakeNewHead).hasClass('snakeBody6') || $('#cell' + snakeNewHead).hasClass('snakeTail1') || $('#cell' + snakeNewHead).hasClass('snakeTail2') || $('#cell' + snakeNewHead).hasClass('snakeTail3') || $('#cell' + snakeNewHead).hasClass('snakeTail4') || $('#cell' + snakeNewHead).hasClass('drakeBody1') || $('#cell' + snakeNewHead).hasClass('drakeBody2') || $('#cell' + snakeNewHead).hasClass('drakeBody3') || $('#cell' + snakeNewHead).hasClass('drakeBody4') || $('#cell' + snakeNewHead).hasClass('drakeBody5') || $('#cell' + snakeNewHead).hasClass('drakeBody6') || $('#cell' + snakeNewHead).hasClass('drakeTail1') || $('#cell' + snakeNewHead).hasClass('drakeTail2') || $('#cell' + snakeNewHead).hasClass('drakeTail3') || $('#cell' + snakeNewHead).hasClass('drakeTail4')){
       console.log('Game Over');
-      clearInterval(refreshSnake, refreshDrake);
+      clearInterval(refreshSnake);
+      clearInterval(refreshDrake);
       gameOver();
     }
   }
@@ -602,6 +625,9 @@ function play(){
   });
 
   function gameOver(){
+    guile.pause();
+    clearInterval(guileInterval);
+    wilhelm.play();
     for(var x=gridHeight;x>=1;x--){
       for(var y=1;y<=gridWidth;y++){
         $('#cell' + y + '-' + x ).fadeOut(1500);
