@@ -23,6 +23,7 @@ button {
   height: 100px;
   width: 100px;
   border: none;
+  background: transparent;
 }
 
 #btn1 {
