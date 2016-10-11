@@ -73,7 +73,7 @@ $('#btn2').click(function play(){
     var yPrey = (Math.floor(Math.random()*gridHeight)+1);
     $('#cell' + xPrey + '-' + yPrey).addClass('prey');
     preyCell = xPrey + '-' + yPrey;
-    if ($('#cell' + preyCell).hasClass('snakeBody' + snakeNextNewHead) || $('#cell' + preyCell).hasClass('snakeTail' + snakeTailDir) || $('#cell' + preyCell).hasClass('snakeHead')){
+    if ($('#cell' + preyCell).hasClass('snakeBody1') || $('#cell' + preyCell).hasClass('snakeBody2') || $('#cell' + preyCell).hasClass('snakeBody3') || $('#cell' + preyCell).hasClass('snakeBody4') || $('#cell' + preyCell).hasClass('snakeBody5') || $('#cell' + preyCell).hasClass('snakeBody6') || $('#cell' + preyCell).hasClass('snakeTail1') || $('#cell' + preyCell).hasClass('snakeTail2') || $('#cell' + preyCell).hasClass('snakeTail3') || $('#cell' + preyCell).hasClass('snakeTail4') || $('#cell' + preyCell).hasClass('snakeHead1') || $('#cell' + preyCell).hasClass('snakeHead2') || $('#cell' + preyCell).hasClass('snakeHead3') || $('#cell' + preyCell).hasClass('snakeHead4') || $('#cell' + preyCell).hasClass('drakeBody1') || $('#cell' + preyCell).hasClass('drakeBody2') || $('#cell' + preyCell).hasClass('drakeBody3') || $('#cell' + preyCell).hasClass('drakeBody4') || $('#cell' + preyCell).hasClass('drakeBody5') || $('#cell' + preyCell).hasClass('drakeBody6') || $('#cell' + preyCell).hasClass('drakeTail1') || $('#cell' + preyCell).hasClass('drakeTail2') || $('#cell' + preyCell).hasClass('drakeTail3') || $('#cell' + preyCell).hasClass('drakeTail4') || $('#cell' + preyCell).hasClass('drakeHead1') || $('#cell' + preyCell).hasClass('drakeHead2') || $('#cell' + preyCell).hasClass('drakeHead3') || $('#cell' + preyCell).hasClass('drakeHead4')){
       $('#cell' + preyCell).removeClass('prey');
       addPrey();
     }
@@ -157,7 +157,8 @@ $('#btn2').click(function play(){
 
     if (drakeNewHeadX === 0 || drakeNewHeadY === 0 || drakeNewHeadX === gridWidth + 1 || drakeNewHeadY === gridHeight + 1){
       console.log('game over');
-      clearInterval(refreshSnake, refreshDrake);
+      clearInterval(refreshSnake);
+      clearInterval(refreshDrake);
       gameOver();
     }
 
@@ -412,7 +413,7 @@ function playSolo(){
   $('.scoreSolo').show();
   console.log('playing solo');
   $('#infoBox').hide();
-  var speed = 100;
+  var speed = 65;
   var gridWidth = 35;
   var gridHeight = 20;
   var click = new Audio('../sounds/click.wav');
