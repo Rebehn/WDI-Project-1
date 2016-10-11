@@ -227,18 +227,7 @@ function playSolo(){
   }
 
   function restart(){
-    $(window).off();
-    for(var x=gridHeight;x>=1;x--){
-      for(var y=1;y<=gridWidth;y++){
-        $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody' + snakeNextNewHead);
-        $('#cell' + y + '-' + x ).fadeIn(100);
-      }
-    }
-    $('#infoBox').hide();
-    snakeInit();
-    $('#cell' + preyCell).removeClass('prey');
-    addPrey();
-    snakeAddMoveKeys();
+    location.reload();
   }
 }
 
@@ -605,7 +594,6 @@ function play(){
   }
 
   function changeDrakeTail(){
-    console.log(parseInt(drake[2].split("-")[1]));
     if ($('#cell' + drake[1]).hasClass('drakeBody3') || $('#cell' + drake[1]).hasClass('drakeBody4') || $('#cell' + drake[1]).hasClass('drakeBody5') || $('#cell' + drake[1]).hasClass('drakeBody6')){
       if (parseInt(drake[2].split("-")[1]) === parseInt(drake[1].split("-")[1]) + 1){
         drakeTailDir = 1;
@@ -626,7 +614,7 @@ function play(){
     $(window).off();
     for(var x=gridHeight;x>=1;x--){
       for(var y=1;y<=gridWidth;y++){
-        $('#cell' + y + '-' + x ).removeClass('snakeHead').removeClass('snakeTail').removeClass('snakeBody' + snakeNextNewHead);
+        $('#cell' + y + '-' + x ).removeClass('snakeHead1').removeClass('snakeHead2').removeClass('snakeHead3').removeClass('snakeHead4').removeClass('snakeTail1').removeClass('snakeTail2').removeClass('snakeTail3').removeClass('snakeTail4').removeClass('snakeBody1').removeClass('snakeBody2').removeClass('snakeBody3').removeClass('snakeBody3').removeClass('snakeBody3').removeClass('snakeBody3');
         $('#cell' + y + '-' + x ).fadeIn(100);
       }
     }
