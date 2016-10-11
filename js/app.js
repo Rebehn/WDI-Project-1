@@ -261,7 +261,7 @@ $('#btn2').click(function play(){
     $(window).keydown(function(g){
       switch (g.key) {
         case 'w':
-        e.preventDefault();
+        g.preventDefault();
         if(drakeDir === 'u') return;
         if (drakeDir !== 'd'){
           if (drakeDir == 'r'){
@@ -276,7 +276,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 's':
-        e.preventDefault();
+        g.preventDefault();
         if(drakeDir === 'd') return;
         if (drakeDir !== 'u'){
           if (drakeDir == 'r'){
@@ -291,7 +291,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'a':
-        e.preventDefault();
+        g.preventDefault();
         if(drakeDir === 'l') return;
         if (drakeDir !== 'r'){
           if (drakeDir == 'u'){
@@ -306,7 +306,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'd':
-        e.preventDefault();
+        g.preventDefault();
         if(drakeDir === 'r') return;
         if (drakeDir !== 'l'){
           if (drakeDir == 'u'){
