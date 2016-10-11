@@ -403,7 +403,7 @@ $('#btn2').click(function play(){
 
 $('#btn1').on("click", playSolo);
 $(document).on('keyup', function(e) {
-  if(e.key === "b") playSolo();
+  if(e.key === 'b' || a.key === 'B') playSolo();
 });
 
 function playSolo(){
@@ -450,7 +450,7 @@ function playSolo(){
     var yPrey = (Math.floor(Math.random()*gridHeight)+1);
     $('#cell' + xPrey + '-' + yPrey).addClass('prey');
     preyCell = xPrey + '-' + yPrey;
-    if ($('#cell' + preyCell).hasClass('snakeBody' + snakeNextNewHead) || $('#cell' + preyCell).hasClass('snakeTail' + snakeTailDir) || $('#cell' + preyCell).hasClass('snakeHead')){
+    if ($('#cell' + preyCell).hasClass('snakeBody1') || $('#cell' + preyCell).hasClass('snakeBody2') || $('#cell' + preyCell).hasClass('snakeBody3') || $('#cell' + preyCell).hasClass('snakeBody4') || $('#cell' + preyCell).hasClass('snakeBody5') || $('#cell' + preyCell).hasClass('snakeBody6') || $('#cell' + preyCell).hasClass('snakeTail1') || $('#cell' + preyCell).hasClass('snakeTail2') || $('#cell' + preyCell).hasClass('snakeTail3') || $('#cell' + preyCell).hasClass('snakeTail4') || $('#cell' + preyCell).hasClass('snakeHead1') || $('#cell' + preyCell).hasClass('snakeHead2') || $('#cell' + preyCell).hasClass('snakeHead3') || $('#cell' + preyCell).hasClass('snakeHead4')){
       $('#cell' + preyCell).removeClass('prey');
       addPrey();
     }
