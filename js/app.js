@@ -461,7 +461,7 @@ $('#btn1').click(function playSolo(){
 
     if (snakeNewHeadX === 0 || snakeNewHeadY === 0 || snakeNewHeadX === gridWidth + 1 || snakeNewHeadY === gridHeight + 1){
       console.log('game over');
-      clearInterval(refreshSnake, refreshDrake);
+      clearInterval(refreshSnake);
       gameOver();
     }
 

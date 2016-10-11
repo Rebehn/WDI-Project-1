@@ -26,6 +26,10 @@ button {
   background: transparent;
 }
 
+button:focus {
+  outline: none
+}
+
 #btn1 {
   position: absolute;
   top: 390px;
@@ -36,6 +40,14 @@ button {
   position: absolute;
   top: 341px;
   right: 5px;
+}
+
+#btn1:hover {
+  background-color: rgba(255,0,0,0.3);
+}
+
+#btn2:hover {
+  background-color: rgba(100,255,0,0.3);
 }
 
 .cell {
