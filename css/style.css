@@ -194,6 +194,10 @@ button:focus {
   background-image: url('../images/duck.jpg');
 }
 
+.preySolo {
+  background-image: url('../images/bigboss.png');
+}
+
 .score {
   position: absolute;
   bottom: 0;

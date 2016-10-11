@@ -17,7 +17,6 @@ function playSolo(){
   $('#btn2').off();
   $(document).off();
   $('.scoreSolo').show();
-  console.log('playing solo');
   $('#infoBox').hide();
   var speed = 65;
   var gridWidth = 35;
@@ -55,10 +54,10 @@ function playSolo(){
   function addPrey(){
     var xPrey = (Math.floor(Math.random()*gridWidth)+1);
     var yPrey = (Math.floor(Math.random()*gridHeight)+1);
-    $('#cell' + xPrey + '-' + yPrey).addClass('prey');
+    $('#cell' + xPrey + '-' + yPrey).addClass('preySolo');
     preyCell = xPrey + '-' + yPrey;
     if ($('#cell' + preyCell).hasClass('snakeBody1') || $('#cell' + preyCell).hasClass('snakeBody2') || $('#cell' + preyCell).hasClass('snakeBody3') || $('#cell' + preyCell).hasClass('snakeBody4') || $('#cell' + preyCell).hasClass('snakeBody5') || $('#cell' + preyCell).hasClass('snakeBody6') || $('#cell' + preyCell).hasClass('snakeTail1') || $('#cell' + preyCell).hasClass('snakeTail2') || $('#cell' + preyCell).hasClass('snakeTail3') || $('#cell' + preyCell).hasClass('snakeTail4') || $('#cell' + preyCell).hasClass('snakeHead1') || $('#cell' + preyCell).hasClass('snakeHead2') || $('#cell' + preyCell).hasClass('snakeHead3') || $('#cell' + preyCell).hasClass('snakeHead4')){
-      $('#cell' + preyCell).removeClass('prey');
+      $('#cell' + preyCell).removeClass('preySolo');
       addPrey();
     }
   }
@@ -101,7 +100,7 @@ function playSolo(){
     snake.push(snakeNewHead);
     snakeNextNewHead = snakeBodyDir;
     if (snakeNewHead == preyCell){
-      $('#cell' + preyCell).removeClass('prey');
+      $('#cell' + preyCell).removeClass('preySolo');
       addPrey();
       click.play();
       click.currentTime = 0;
@@ -237,9 +236,8 @@ function play(){
   $(document).off();
   $('.score').show();
   $('.score2').show();
-  console.log('playing');
   $('#infoBox').hide();
-  var speed = 100;
+  var speed = 70;
   var gridWidth = 35;
   var gridHeight = 20;
   var click = new Audio('../sounds/click.wav');
