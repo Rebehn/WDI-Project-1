@@ -18,6 +18,25 @@ body {
   top: 180px;
 }
 
+button {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: none;
+}
+
+#btn1 {
+  position: absolute;
+  top: 390px;
+  right: 149px;
+}
+
+#btn2 {
+  position: absolute;
+  top: 341px;
+  right: 5px;
+}
+
 .cell {
   background-color: white;
   height: 20px;
