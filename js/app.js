@@ -257,6 +257,8 @@ function playSolo(){
     }
     $('#infoBox').html('Game Over');
     $('#infoBox').css('left', '250px');
+    $('#infoBox').css('top', '180px');
+    $('#infoBox').css('font-size', '-webkit-xxx-large');
     $('#infoBox').show();
     $(window).keydown(function(e){
       if (e.key == 'r'){
@@ -635,6 +637,7 @@ function play(){
     }
     $('#infoBox').html('Game Over');
     $('#infoBox').css('left', '250px');
+    $('#infoBox').css('top', '180px');
     $('#infoBox').css('font-size', '-webkit-xxx-large');
     $('#infoBox').show();
     $(window).keydown(function(e){
