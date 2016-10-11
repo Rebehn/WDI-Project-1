@@ -212,6 +212,15 @@ button:focus {
   font-weight: bold;
 }
 
+.scoreSolo {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  color: cyan;
+  font-family: monospace;
+  font-weight: bold;
+}
+
 #infoBox {
   position: absolute;
   top: 200px;

@@ -1,9 +1,15 @@
 
 console.log('loaded');
 
+$('.score').hide();
+$('.score2').hide();
+$('.scoreSolo').hide();
+
 $('#btn2').click(function play(){
   $('#btn1').off();
   $('#btn2').off();
+  $('.score').show();
+  $('.score2').show();
   console.log('playing');
   $('#infoBox').hide();
   var speed = 100;
@@ -187,6 +193,7 @@ $('#btn2').click(function play(){
     $(window).keydown(function(e){
       switch (e.key) {
         case 'ArrowUp':
+        e.preventDefault();
         if(snakeDir === 'u') return;
         if (snakeDir !== 'd'){
           if (snakeDir == 'r'){
@@ -201,6 +208,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'ArrowDown':
+        e.preventDefault();
         if(snakeDir === 'd') return;
         if (snakeDir !== 'u'){
           if (snakeDir == 'r'){
@@ -215,6 +223,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'ArrowLeft':
+        e.preventDefault();
         if(snakeDir === 'l') return;
         if (snakeDir !== 'r'){
           if (snakeDir == 'u'){
@@ -229,6 +238,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'ArrowRight':
+        e.preventDefault();
         if(snakeDir === 'r') return;
         if (snakeDir !== 'l'){
           if (snakeDir == 'u'){
@@ -250,6 +260,7 @@ $('#btn2').click(function play(){
     $(window).keydown(function(g){
       switch (g.key) {
         case 'w':
+        e.preventDefault();
         if(drakeDir === 'u') return;
         if (drakeDir !== 'd'){
           if (drakeDir == 'r'){
@@ -264,6 +275,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 's':
+        e.preventDefault();
         if(drakeDir === 'd') return;
         if (drakeDir !== 'u'){
           if (drakeDir == 'r'){
@@ -278,6 +290,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'a':
+        e.preventDefault();
         if(drakeDir === 'l') return;
         if (drakeDir !== 'r'){
           if (drakeDir == 'u'){
@@ -292,6 +305,7 @@ $('#btn2').click(function play(){
         }
         break;
         case 'd':
+        e.preventDefault();
         if(drakeDir === 'r') return;
         if (drakeDir !== 'l'){
           if (drakeDir == 'u'){
@@ -387,9 +401,15 @@ $('#btn2').click(function play(){
 });
 
 
-$('#btn1').click(function playSolo(){
+$('#btn1').on("click", playSolo);
+$(document).on('keyup', function(e) {
+  if(e.key === "b") playSolo();
+});
+
+function playSolo(){
   $('#btn1').off();
   $('#btn2').off();
+  $('.scoreSolo').show();
   console.log('playing solo');
   $('#infoBox').hide();
   var speed = 100;
@@ -478,7 +498,7 @@ $('#btn1').click(function playSolo(){
       addPrey();
       click.play();
       click.currentTime = 0;
-      $('#score').html(parseInt($('#score').html())+10);
+      $('#scoreSolo').html(parseInt($('#scoreSolo').html())+10);
     } else {
       snake.shift();
     }
@@ -495,6 +515,7 @@ $('#btn1').click(function playSolo(){
     $(window).keydown(function(e){
       switch (e.key) {
         case 'ArrowUp':
+        e.preventDefault();
         if(snakeDir === 'u') return;
         if (snakeDir !== 'd'){
           if (snakeDir == 'r'){
@@ -509,6 +530,7 @@ $('#btn1').click(function playSolo(){
         }
         break;
         case 'ArrowDown':
+        e.preventDefault();
         if(snakeDir === 'd') return;
         if (snakeDir !== 'u'){
           if (snakeDir == 'r'){
@@ -523,6 +545,7 @@ $('#btn1').click(function playSolo(){
         }
         break;
         case 'ArrowLeft':
+        e.preventDefault();
         if(snakeDir === 'l') return;
         if (snakeDir !== 'r'){
           if (snakeDir == 'u'){
@@ -537,6 +560,7 @@ $('#btn1').click(function playSolo(){
         }
         break;
         case 'ArrowRight':
+        e.preventDefault();
         if(snakeDir === 'r') return;
         if (snakeDir !== 'l'){
           if (snakeDir == 'u'){
@@ -609,4 +633,4 @@ $('#btn1').click(function playSolo(){
     addPrey();
     snakeAddMoveKeys();
   }
-});
+}
