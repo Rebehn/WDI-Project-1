@@ -1,23 +1,66 @@
 
 console.log('loaded');
 
+var $btn1 = $('#btn1');
+var $btn2 = $('#btn2');
+
 $('.score').hide();
 $('.score2').hide();
 $('.scoreSolo').hide();
 
-$('#btn1').on("click", playSolo);
-$('#btn2').on("click", play);
+$btn1.on("click", playSolo);
+$btn2.on("click", play);
 $(document).on('keyup', function(e) {
-  if(e.key === 'b' || e.key === 'B') playSolo();
-  else if (e.key === 'a' || e.key === 'A') play();
+  if(e.key.toLowerCase() === 'b'){
+    $btn1.css('background-color', 'rgba(255,0,0,0.3)');
+    setTimeout(function() {
+      $btn1.removeAttr('style');
+    }, 200);
+    playSolo();
+  }
+  else if (e.key.toLowerCase() === 'a'){
+    $btn2.css('background-color', 'rgba(100,255,0,0.3)');
+    setTimeout(function() {
+      $btn2.removeAttr('style');
+    }, 200);
+    play();
+  }
 });
 
 function playSolo(){
-  $('#btn1').off();
-  $('#btn2').off();
+  $btn1.off();
+  $btn2.off();
   $(document).off();
   $('.scoreSolo').show();
   $('#infoBox').hide();
+  $(document).keydown(function(f){
+    if(f.key === 'ArrowUp'){
+      $('#arw1').css('background-color', 'rgba(255,255,255,0.3)');
+    }
+    else if(f.key === 'ArrowRight'){
+      $('#arw2').css('background-color', 'rgba(255,255,255,0.3)');
+    }
+    else if(f.key === 'ArrowLeft'){
+      $('#arw4').css('background-color', 'rgba(255,255,255,0.3)');
+    }
+    else if(f.key === 'ArrowDown'){
+      $('#arw3').css('background-color', 'rgba(255,255,255,0.3)');
+    }
+  });
+  $(document).keyup(function(g){
+    if(g.key === 'ArrowUp'){
+      $('#arw1').css('background', 'transparent');
+    }
+    else if(g.key === 'ArrowRight'){
+      $('#arw2').css('background', 'transparent');
+    }
+    else if(g.key === 'ArrowDown'){
+      $('#arw3').css('background', 'transparent');
+    }
+    else if(g.key === 'ArrowLeft'){
+      $('#arw4').css('background', 'transparent');
+    }
+  });
   var speed = 65;
   var gridWidth = 35;
   var gridHeight = 20;

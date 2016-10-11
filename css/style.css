@@ -8,6 +8,7 @@ body {
   width: 1440px;
   height: 810px;
   margin-top: 45px;
+  position: relative;
 }
 
 .game {
@@ -16,6 +17,42 @@ body {
   margin: 0 auto;
   position: relative;
   top: 180px;
+}
+
+.arrows {
+  background-color: red;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.arrows:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+#arw1 {
+  position: absolute;
+  top: 280px;
+  left: 116px;
+}
+
+#arw2 {
+  position: absolute;
+  top: 346px;
+  left: 182px;
+}
+
+#arw3 {
+  position: absolute;
+  top: 413px;
+  left: 116px;
+}
+
+#arw4 {
+  position: absolute;
+  top: 346px;
+  left: 50px;
 }
 
 button {
@@ -32,14 +69,14 @@ button:focus {
 
 #btn1 {
   position: absolute;
-  top: 390px;
+  top: 345px;
   right: 149px;
 }
 
 #btn2 {
   position: absolute;
-  top: 341px;
-  right: 5px;
+  top: 295px;
+  right: 5px
 }
 
 #btn1:hover {
