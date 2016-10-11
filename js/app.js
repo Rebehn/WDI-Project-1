@@ -2,7 +2,7 @@
 
 console.log('loaded');
 
-function play(){
+$('#btn2').click(function play(){
   console.log('playing');
   $('#infoBox').hide();
   var speed = 100;
@@ -383,7 +383,7 @@ function play(){
     snakeAddMoveKeys();
   }
 
-}
+});
 
 $(window).one().keydown(function(e){
   console.log(e.key);
