@@ -313,6 +313,7 @@ function play(){
       guile.pause();
     }
     else if(e.key){
+      guile.volume = 0.3;
       guile.play();
     }
   });
@@ -678,7 +679,7 @@ function play(){
   });
 
   function gameOver(){
-    guile.pause();
+    guile.volume = 0;
     clearInterval(guileInterval);
     wilhelm.play();
     for(var x=gridHeight;x>=1;x--){
