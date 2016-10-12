@@ -39,10 +39,17 @@ function playSolo(){
     background.play();
   }, 2222);
   background.play();
-
   $btn1.off();
   $btn2.off();
   $(document).off();
+  $(document).on('keydown', function(e) {
+    if(e.key === 'm'){
+      background.volume = 0;
+    }
+    else if (e.key === 'n'){
+      background.volume = 1;
+    }
+  });
   $('.scoreSolo').show();
   $('#infoBox').hide();
   $(document).keydown(function(f){
@@ -298,10 +305,17 @@ function play(){
   }, 245616);
   guile.currentTime = 4500;
   guile.play();
-
   $('#btn1').off();
   $('#btn2').off();
   $(document).off();
+  $(document).on('keyup', function(e) {
+    if(e.key === 'm'){
+      guile.pause();
+    }
+    else if(e.key){
+      guile.play();
+    }
+  });
   $('.score').show();
   $('.score2').show();
   $('#infoBox').hide();
