@@ -1,7 +1,7 @@
 # WDI-Project-1
 ### Aaron Jeffrey-Hall
 
-You can play the game [here](https://enigmatic-island-64889.herokuapp.com/)
+You can play the game [here](https://enigmatic-island-64889.herokuapp.com/) <br>
 ![star](./images/screenshot.png)
 
 ##Overview
