@@ -1,7 +1,7 @@
 # WDI-Project-1
 ### Aaron Jeffrey-Hall
 
-You can play the game [here](https://enigmatic-island-64889.herokuapp.com/) <br>
+You can play the game [here](https://snake-vs-snake.herokuapp.com/) <br>
 ![Ingame screenshot](./images/screenshot.png)
 
 ##Overview
@@ -15,7 +15,7 @@ For this task I decided to create a simple snake-like game. The object of this g
 
 ##Controls
 - Arrowkeys to move in singleplayer or for player one in two player.
-- WASD keys to move in two player.
+- WASD keys to move the second player in two player.
 - P key pauses.
 - [ key resumes.
 - R key restarts after game over.
